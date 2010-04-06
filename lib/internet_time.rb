@@ -6,7 +6,7 @@
 # This program is free software. It may be redistributed and/or modified
 # under the terms of the New BSD licence.
 #
-# $Id: beats.rb,v 1.0 2010/04/06 13:33:01 themactep Exp $
+# $Id: beats.rb,v 1.0.2 2010/04/07 05:03:03 themactep Exp $
 #++
 
 # The library add Swatch Internet Time capability to the standard Ruby Time class.
@@ -27,7 +27,8 @@ class Time #:nodoc:#
 
   # Time in .beats
   def to_beats
-    "@%03d" % [ ((bmt.hour * 60 + bmt.min) * 60 + bmt.sec) / SECOND_PER_BEAT ]
+    time = bmt
+    "@%03d" % [ ((time.hour * 60 + time.min) * 60 + time.sec) / SECOND_PER_BEAT ]
   end
 end
 
