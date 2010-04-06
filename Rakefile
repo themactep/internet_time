@@ -1,23 +1,31 @@
-require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rubygems'
+require 'rake/clean'
+require 'rake/gempackagetask'
 
-desc 'Default: run unit tests.'
-task :default => :test
+spec = Gem::Specification.new do |s|
+  s.name = 'internet_time'
+  s.version = File.read('VERSION')
+  s.date = File.mtime('VERSION')
 
-desc 'Test the more plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+  s.summary = %Q{Swatch Internet Time extension to Ruby Time class}
+  s.description = %Q{Swatch Internet time extension to Ruby Time class}
+  s.homepage = 'http://themactep.com/'
+  s.author = 'Paul Philippov'
+  s.email = 'themactep@gmail.com'
+  s.version = File.read('VERSION')
+  s.date = File.mtime('VERSION')
+
+  s.files = FileList["{lib}/**/*","[A-Z]*"].to_a
+  s.require_path = "lib"
+
+  s.has_rdoc = true
+  s.extra_rdoc_files = ['README', 'LICENSE']
+
+  s.rubyforge_project = 'internet_time'
 end
 
-desc 'Generate documentation for the more plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'More'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.markdown')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+Rake::GemPackageTask.new(spec) do |p|
+  p.gem_spec = spec
+  p.need_tar = true
+  p.need_zip = true
 end
