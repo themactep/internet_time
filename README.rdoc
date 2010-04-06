@@ -3,7 +3,7 @@
   Swatch Internet Time extension to Ruby Time class.
 
 Installation:
-  $ sudo gem install beats
+  $ sudo gem install internet_time
 
 Usage:
   require 'internet_time'
@@ -11,3 +11,6 @@ Usage:
 
 Author:
   Paul Philippov <themactep@gmail.com>
+
+License:
+  New BSD License
