@@ -1,31 +1,12 @@
-require 'rubygems'
-require 'rake/clean'
-require 'rake/gempackagetask'
+require 'bundler/gem_tasks'
 
-spec = Gem::Specification.new do |s|
-  s.name = 'internet_time'
-  s.version = File.read('VERSION')
-  s.date = File.mtime('VERSION')
+task :default => :spec
 
-  s.summary = %Q{Swatch Internet Time extension to Ruby Time class}
-  s.description = %Q{Swatch Internet time extension to Ruby Time class}
-  s.homepage = 'http://themactep.com/'
-  s.author = 'Paul Philippov'
-  s.email = 'themactep@gmail.com'
-  s.version = File.read('VERSION')
-  s.date = File.mtime('VERSION')
-
-  s.files = FileList["{lib}/**/*","[A-Z]*"].to_a
-  s.require_path = "lib"
-
-  s.has_rdoc = true
-  s.extra_rdoc_files = ['README', 'LICENSE']
-
-  s.rubyforge_project = 'internet_time'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = 'spec/**/*_spec.rb'
+  spec.rspec_opts = '--color'
 end
 
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
-  p.need_tar = true
-  p.need_zip = true
-end
+require 'yard'
+YARD::Rake::YardocTask.new
