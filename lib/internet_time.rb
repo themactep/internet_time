@@ -21,6 +21,6 @@ class Time
   # Time in .beats
   def to_beats
     time = bmt
-    "@%03d" % [ ((time.hour * 60 + time.min) * 60 + time.sec) / SECOND_PER_BEAT ]
+    ((time.hour * 60 + time.min) * 60 + time.sec) / SECOND_PER_BEAT
   end
 end
