@@ -10,8 +10,7 @@ module InternetTime
 end
 
 class Time
-  SECOND_PER_BEAT = 86.4  # Amount of seconds in a single .beat
-  BMT_OFFSET_SEC = 3600   # Biel Mean Time offset to UTC in seconds
+  BMT_OFFSET_SEC = 3600 # Biel Mean Time offset to UTC in seconds
 
   # Time in Biel Mean Time (UTC+1)
   def bmt
@@ -21,6 +20,6 @@ class Time
   # Time in .beats
   def to_beats
     time = bmt
-    ((time.hour * 60 + time.min) * 60 + time.sec) / SECOND_PER_BEAT
+    ((time.hour * 60 + time.min) * 60 + time.sec) * 10 / 864
   end
 end
