@@ -2,7 +2,8 @@
 # Its usage is very straightforward:
 #
 #   require 'internet_time'
-#   Time.now.to_beats  # => @234
+#   Time.now.beats     # => 234
+#   Time.now.to_beats  # => "@234"
 #
 require 'internet_time/version'
 
@@ -18,8 +19,13 @@ class Time
   end
 
   # Time in .beats
-  def to_beats
+  def beats
     time = bmt
     ((time.hour * 60 + time.min) * 60 + time.sec) * 10 / 864
+  end
+
+  # Time in .beats, formatted
+  def to_beats
+    '@%03d' % beats
   end
 end
