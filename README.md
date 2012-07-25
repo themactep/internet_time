@@ -8,6 +8,7 @@
 ## Usage
 ```
 require 'internet_time'
+Time.now.beats    # => 234
 Time.now.to_beats # => "@234"
 ```
 
