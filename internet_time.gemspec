@@ -20,7 +20,7 @@ spec = Gem::Specification.new do |s|
 
   s.add_development_dependency %q<bundler>, ["~> 1.0"]
   s.add_development_dependency %q<rspec>, ["~> 2.11"]
-  s.add_development_dependency %q<yard>, ["~> 0.8"]
+  s.add_development_dependency %q<yard>, ["~> 0.9.11"]
   s.add_development_dependency %q<rake>, [">= 0"]
   s.add_development_dependency %q<guard-rspec>
 end
