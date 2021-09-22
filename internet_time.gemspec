@@ -18,7 +18,7 @@ spec = Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency %q<bundler>, ["~> 1.0"]
+  s.add_development_dependency %q<bundler>, ["~> 2.2.10"]
   s.add_development_dependency %q<rspec>, ["~> 2.11"]
   s.add_development_dependency %q<yard>, ["~> 0.9.11"]
   s.add_development_dependency %q<rake>, [">= 0"]

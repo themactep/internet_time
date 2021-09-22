@@ -1,5 +1,8 @@
 # master
 
+# 1.0.3
+  * upgrade bundler dependency due to security vulnerabilities.
+
 # 1.0.2
   * added #beats for unformatted value (similar to #hour, #min, etc.)
   * added tests [benlangfeld]
